@@ -31,7 +31,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: estheronyinye/your-app-name:latest
+          tags: estheronyinye/staging-app:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -42,11 +42,11 @@ jobs:
       - name: SSH into server and deploy
         uses: appleboy/ssh-action@v0.1.5
         with:
-          host: ${{ secrets.STAGING_HOST }}
-          username: ${{ secrets.STAGING_USER }}
+          host: ${{ secrets.SSH_STAGING_HOST }}
+          username: ${{ secrets.SSH_STAGING_USER }}
           key: ${{ secrets.SSH_STAGING_KEY }}
           script: |
-            docker pull estheronyinye/your-app-name:latest
+            docker pull estheronyinye/staging-app:latest
             docker stop staging_container || true
             docker rm staging_container || true
-            docker run -d --name staging_container -p 3000:3000 estheronyinye/your-app-name:latest
+            docker run -d --name staging_container -p 3000:3000 estheronyinye/staging-app:latest
