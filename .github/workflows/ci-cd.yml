@@ -21,9 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: /home/runner/work/devops-internship-task/devops-internship-task
 
       - name: Run tests
         run: npm run test
+        working-directory: /home/runner/work/devops-internship-task/devops-internship-task
 
       - name: Build the application
         run: npm run build
