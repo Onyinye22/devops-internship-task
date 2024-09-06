@@ -14,6 +14,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: List files in working directory
+        run: ls -la /home/runner/work/devops-internship-task/devops-internship-task
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
