@@ -44,7 +44,7 @@ jobs:
         with:
           host: ${{ secrets.STAGING_HOST }}
           username: ${{ secrets.STAGING_USER }}
-          key: ${{ secrets.STAGING_KEY }}
+          key: ${{ secrets.SSH_STAGING_KEY }}
           script: |
             docker pull estheronyinye/your-app-name:latest
             docker stop staging_container || true
