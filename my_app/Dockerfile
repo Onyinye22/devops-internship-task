@@ -1,11 +1,11 @@
-# Use the official Node.js image from Docker Hub
+## Use the official Node.js image from Docker Hub
 FROM node:14
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Install Node.js and npm (if not already installed in the base image)
-RUN apt-get update && apt-get install -y nodejs npm
+RUN apt-get update && apt-get install -y nodejs 
 
 # Install the dependencies
 RUN npm install express --save
@@ -17,6 +17,6 @@ COPY . .
 EXPOSE 80
 
 # Command to run the app
-CMD ["npm", "server.js"]
+CMD ["node", "server.js"]
 
 
