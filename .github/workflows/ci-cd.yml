@@ -29,12 +29,16 @@ jobs:
       - name: Build the Docker image
         run: docker buildx build -t my_app:${{ github.sha }} .
 
-       # Step 5: Push the Docker image to DockerHub
+      #step 5: Load the Docker image
+      - name: Load the Docker image
+        run: docker buildx build -t my_app --load .
+
+       # Step 6: Push the Docker image to DockerHub
       - name: Push Docker image to DockerHub
         run: docker buildx build -t my_app --push .
 
 
-  # Step 6: Deploy to staging (with Docker container)
+  # Step 7: Deploy to staging (with Docker container)
       - name: Deploy to staging
         run: |
           docker run -d -p 80:80 --name my_app-staging my_app:${{ github.sha }}
