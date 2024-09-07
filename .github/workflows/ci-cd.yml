@@ -31,7 +31,8 @@ jobs:
 
        # Step 5: Push the Docker image to DockerHub
       - name: Push Docker image to DockerHub
-        run: docker push my_app:${{ github.sha }}
+        run: docker buildx build -t my_app --push .
+
 
   # Step 6: Deploy to staging (with Docker container)
       - name: Deploy to staging
