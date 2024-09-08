@@ -57,10 +57,9 @@ jobs:
       # Step 4: Test the Docker image
       - name: Run automated tests
         run: |
-          docker run -d -p 80:80 --name my_app_test --rm estheronyinye/my_app .
+          docker run -d -p 80:80 --rm guddytech/my_app 
           sleep 10
           curl http://localhost:80
-          docker stop my_app_test
 
   deploy:
     runs-on: ubuntu-latest
@@ -78,6 +77,4 @@ jobs:
       # Step 3: Deploy to staging (with Docker container)
       - name: Deploy to staging
         run: |
-            docker stop my_app-staging || true
-            docker rm my_app-staging || true
             docker run -d -p 80:80 --name my_app-staging estheronyinye/my_app . 
