@@ -9,3 +9,16 @@ Firstly, i created a github repository (devops-internship-task),then i activated
 Secondly, i added a server.js file to serve as the primary entry point for Node.js based application. the server.js imports the dependency (express), sets up the instance and defines the route to handle incoming requests.
 
 Thirdly, i created a dockerfile, that package and runs the server.js file in a docker container. The containerized server.js environment is then used for building, testing and deployment.
+Pipeline Steps:
+
+Build
+Checkout code from GitHub repository.
+Build Docker image using Dockerfile.
+Test
+Run automated tests on the built image.
+Deploy
+Push built image the container registry ( Docker Hub).
+Deploys the image to the production environment.
+Pipeline Configuration
+
+.github/workflow
