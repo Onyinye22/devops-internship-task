@@ -46,10 +46,10 @@ jobs:
       - name: Push Docker image to DockerHub
         run: docker buildx build -t estheronyinye/my_app --push .
 
-      # Step 4: Test backend (add your testing command here, e.g., running unit tests)
+      # Step 4: Test the Docker image
       - name: Run automated tests
         run: |
-          docker run -d -p 80:80 --rm estheronyinye/my_app 
+          docker run -d -p 80:80 --name my_app-test estheronyinye/my_app .
           sleep 10
           curl http://localhost:80
 
@@ -61,8 +61,14 @@ jobs:
       # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
+        
+      # Step 2: Pull the Docker image from Dockerhub
+      - name: Pull the Docker image
+        run: docker pull estheronyinye/my_app
 
-      # Step 2: Deploy to staging (with Docker container)
+      # Step 3: Deploy to staging (with Docker container)
       - name: Deploy to staging
         run: |
-          docker run -d -p 80:80 --name my_app-staging estheronyinye/my_app 
+            docker stop my_app-staging || true
+            docker rm my_app-staging || true
+            docker run -d -p 80:80 --name my_app-staging estheronyinye/my_app . 
