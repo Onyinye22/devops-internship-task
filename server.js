@@ -6,7 +6,7 @@ const PORT = 80;
 
 // Define a route to respond with a message
 app.get('/', (req, res) => {
-  res.send('Hello, CI/CD World!');
+  res.send('Hello, Balancee!');
 });
 
 // Start the server
