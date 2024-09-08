@@ -57,7 +57,7 @@ jobs:
       # Step 4: Test the Docker image
       - name: Run automated tests
         run: |
-          docker run -d -p 80:80 --name --rm estheronyinye/my_app .
+          docker run -d -p 80:80 --name my_app-test --rm ***/my_app .
           sleep 10
           curl http://localhost:80
 
