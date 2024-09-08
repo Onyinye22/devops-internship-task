@@ -4,7 +4,7 @@ This documentation describes the CI/CD pipeline that has been set up to automate
 
 CI (Continous Integration) and CD (Continous Deployment) ensures that the code latest are automatically tested and deployed to the staging environment.
 
-Firstly, i created a github repository (devops-internship-task),then i activated github actions by creating a ci-cd YAML file (.github/workflows/ci-cd.yml). 
+- Firstly, i created a github repository (devops-internship-task),then i activated github actions by creating a ci-cd YAML file (.github/workflows/ci-cd.yml). 
 
 Secondly, i added a server.js file to serve as the primary entry point for Node.js based application. the server.js imports the dependency (express), sets up the instance and defines the route to handle incoming requests.
 
