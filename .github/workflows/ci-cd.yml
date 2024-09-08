@@ -52,6 +52,7 @@ jobs:
           docker run -d -p 80:80 --name my_app-test estheronyinye/my_app .
           sleep 10
           curl http://localhost:80
+          docker stop my_app-test
 
   deploy:
     runs-on: ubuntu-latest
